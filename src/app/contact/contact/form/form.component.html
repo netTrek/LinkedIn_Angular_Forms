@@ -1,11 +1,21 @@
 <form #myForm="ngForm">
-  <input type="text"
-         #username="ngModel"
-         [ngModel]="startValue"
-         (ngModelChange)="usernameChanged( $event )"
-         name="name"
-         id="name"
-         placeholder="name">
+
+  <span ngModelGroup="personalInfo">
+    <input type="text"
+           #username="ngModel"
+           [ngModel]="startValue"
+           (ngModelChange)="usernameChanged( $event )"
+           name="name"
+           id="name"
+           placeholder="name">
+    <br>
+    <input type="email"
+           #email="ngModel"
+           ngModel
+           name="email"
+           id="email"
+           placeholder="email">
+  </span>
   <br>
 
   <textarea
@@ -21,7 +31,10 @@
 
 <button (click)="updateName()">update</button>
 
+<p>{{myForm.value | json}}</p>
+<!--
+
 <p>{{message.value}}</p>
 <p>{{username.value}}</p>
-<p>{{myForm.value | json}}</p>
 <p>{{myForm.valid}}</p>
+-->

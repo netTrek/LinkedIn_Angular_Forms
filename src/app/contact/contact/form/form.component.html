@@ -1,5 +1,9 @@
-<form ngForm>
-  <input type="text" name="name" id="name" placeholder="name"> <br>
-  <textarea name="msg" id="msg" cols="30" rows="5" placeholder="Nachricht"></textarea>
+<form #myForm="ngForm">
+  <input type="text" #username="ngModel" ngModel name="name" id="name" placeholder="name"> <br>
+  <textarea #message="ngModel" ngModel name="msg" id="msg" cols="30" rows="5" placeholder="Nachricht"></textarea>
   <button>senden</button>
 </form>
+<p>{{message.value}}</p>
+<p>{{username.value}}</p>
+<p>{{myForm.value | json}}</p>
+<p>{{myForm.valid}}</p>

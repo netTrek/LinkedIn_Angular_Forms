@@ -17,6 +17,8 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   startValue = 'Peter Müller';
 
+  searchstring: '';
+
   private formSub: Subscription;
   private userSub: Subscription;
 

@@ -1,7 +1,7 @@
 <form #myForm="ngForm">
   <input type="text"
          #username="ngModel"
-         ngModel
+         [ngModel]="startValue"
          (ngModelChange)="usernameChanged( $event )"
          name="name"
          id="name"
@@ -18,6 +18,8 @@
     placeholder="Nachricht"></textarea>
   <button>senden</button>
 </form>
+
+<button (click)="updateName()">update</button>
 
 <p>{{message.value}}</p>
 <p>{{username.value}}</p>

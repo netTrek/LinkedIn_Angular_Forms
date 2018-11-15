@@ -9,40 +9,52 @@ import {Subscription} from 'rxjs';
 })
 export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild ( NgForm )
+  @ViewChild(NgForm)
   ngForm: NgForm;
 
-  @ViewChild ( 'username' )
+  @ViewChild('username')
   username: NgModel;
+
+  startValue = 'Peter Müller';
+
   private formSub: Subscription;
   private userSub: Subscription;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   ngAfterViewInit(): void {
-    console.log ( this.ngForm.value );
-    console.log ( this.username.value );
+    console.log(this.ngForm.value);
+    console.log(this.username.value);
     this.userSub = this.username.valueChanges.subscribe(
       next => {
-        console.log( 'new username', next );
+        console.log('new username', next);
       }
     );
     this.formSub = this.ngForm.valueChanges.subscribe(
       next => {
-        console.log( 'form updated', next );
+        console.log('form updated', next);
       }
     );
   }
 
-  usernameChanged( currentname: string ) {
-    console.log ( 'currentname', currentname  );
+  usernameChanged(currentname: string) {
+    console.log('currentname', currentname);
   }
 
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
     this.formSub.unsubscribe();
+  }
+
+  updateName() {
+    this.username.control.setValue( 'neuer wert', {
+      emitEvent: true,
+      emitViewToModelChange: true,
+      emitModelToViewChange: true
+    } );
   }
 }

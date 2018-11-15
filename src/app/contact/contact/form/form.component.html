@@ -1,13 +1,13 @@
-<input type="text" [(ngModel)]="searchstring" [ngModelOptions]="{standalone: true}"> <br>
-<p>{{searchstring}}</p>
-<form #myForm="ngForm">
+
+<form #myForm="ngForm" [ngFormOptions]="{updateOn: 'blur'}">
 
   <span ngModelGroup="personalInfo">
     <input type="text"
            #username="ngModel"
            [ngModel]="startValue"
            (ngModelChange)="usernameChanged( $event )"
-           [ngModelOptions]="{name: 'name', updateOn: 'change'}"
+           [ngModelOptions]="{updateOn: 'change'}"
+           name="name"
            id="name"
            placeholder="name">
     <br>

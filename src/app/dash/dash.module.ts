@@ -15,7 +15,6 @@ import { DashComponent } from './dash/dash.component';
 export class DashModule {
 
   constructor () {
-    console.log ( 'Dash Loaded' );
   }
 
 }

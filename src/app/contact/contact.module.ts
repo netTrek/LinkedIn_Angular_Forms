@@ -4,11 +4,12 @@ import { ContactComponent } from './contact/contact.component';
 import { MapComponent } from './contact/map/map.component';
 import { FormComponent } from './contact/form/form.component';
 import { RouterModule, Routes } from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {
     path: '', component: ContactComponent, children: [
-      { path: '', redirectTo: 'map', pathMatch: 'full' },
+      { path: '', redirectTo: 'form', pathMatch: 'full' },
       { path: 'map', component: MapComponent },
       { path: 'form', component: FormComponent }
     ]
@@ -18,6 +19,7 @@ const routes: Routes = [
 @NgModule ( {
   imports     : [
     CommonModule,
+    FormsModule,
     RouterModule.forChild ( routes )
   ],
   declarations: [ ContactComponent,

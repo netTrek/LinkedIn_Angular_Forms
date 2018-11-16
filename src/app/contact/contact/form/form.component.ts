@@ -21,6 +21,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private formSub: Subscription;
   private userSub: Subscription;
+  private userSub2: Subscription;
 
   constructor() {
   }
@@ -41,6 +42,12 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log('form updated', next);
       }
     );
+    this.userSub2 = this.username.statusChanges.subscribe(
+      next => {
+        console.log('statusChanges', next, this.username.errors);
+
+      }
+    );
   }
 
   usernameChanged(currentname: string) {
@@ -49,6 +56,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
+    this.userSub2.unsubscribe();
     this.formSub.unsubscribe();
   }
 

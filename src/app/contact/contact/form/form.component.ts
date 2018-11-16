@@ -30,8 +30,8 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.ngForm.value);
-    console.log(this.username.value);
+    // console.log(this.ngForm.value);
+    // console.log(this.username.value);
     this.userSub = this.username.valueChanges.subscribe(
       next => {
         // console.log('new username', next);
@@ -71,13 +71,13 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   send ( formData: any ) {
     console.log ( formData, this.ngForm.value );
     // this.ngForm.reset( { personalInfo: { email: 'saban@uenlue.de'} } );
-    this.ngForm.control.reset( { personalInfo: { email: 'saban@uenlue.de'} }, {
-      onlySelf: false, emitEvent: false
-    } );
+    // this.ngForm.control.reset( { personalInfo: { email: 'saban@uenlue.de'} }, {
+    //   onlySelf: false, emitEvent: false
+    // } );
   }
 
   reset () {
-    console.log ( 'reset' );
+    // console.log ( 'reset' );
   }
 
 }

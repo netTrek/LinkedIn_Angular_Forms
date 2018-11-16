@@ -2,6 +2,7 @@
 <form #myForm="ngForm"
       [ngFormOptions]="{updateOn: 'change'}"
       (submit)="send( myForm.value )"
+      (reset)="reset()"
 >
 
   <span ngModelGroup="personalInfo">
@@ -44,6 +45,7 @@
     placeholder="Nachricht"></textarea>
 
   <button type="submit" [disabled]="myForm.invalid">senden</button>
+  <button type="reset" [disabled]="myForm.pristine">reset</button>
 
 </form>
 

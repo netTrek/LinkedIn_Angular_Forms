@@ -70,5 +70,14 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   send ( formData: any ) {
     console.log ( formData, this.ngForm.value );
+    // this.ngForm.reset( { personalInfo: { email: 'saban@uenlue.de'} } );
+    this.ngForm.control.reset( { personalInfo: { email: 'saban@uenlue.de'} }, {
+      onlySelf: false, emitEvent: false
+    } );
   }
+
+  reset () {
+    console.log ( 'reset' );
+  }
+
 }

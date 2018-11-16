@@ -2,3 +2,7 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+input.ng-invalid.ng-dirty.ng-touched {
+  color: red;
+}

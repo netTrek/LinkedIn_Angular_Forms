@@ -1,5 +1,5 @@
 
-<form #myForm="ngForm" [ngFormOptions]="{updateOn: 'blur'}">
+<form #myForm="ngForm" [ngFormOptions]="{updateOn: 'change'}">
 
   <span ngModelGroup="personalInfo">
     <input type="text"
@@ -17,7 +17,7 @@
            name="email"
            id="email"
            email=""
-           placeholder="email"> {{email.valid}} # {{email.invalid}}
+           placeholder="email"> {{email.dirty}} # {{email.pristine}} # {{email.touched}}
   </span>
   <br>
 
@@ -34,6 +34,7 @@
 
 <button (click)="updateName()">update</button>
 
+<p>{{myForm.dirty }}</p>
 <p>{{myForm.value | json}}</p>
 <!--
 

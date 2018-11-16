@@ -16,7 +16,8 @@
            ngModel
            name="email"
            id="email"
-           placeholder="email">
+           email=""
+           placeholder="email"> {{email.valid}} # {{email.invalid}}
   </span>
   <br>
 
@@ -28,7 +29,7 @@
     cols="30"
     rows="5"
     placeholder="Nachricht"></textarea>
-  <button>senden</button>
+  <button type="submit" [disabled]="myForm.invalid">senden</button>
 </form>
 
 <button (click)="updateName()">update</button>

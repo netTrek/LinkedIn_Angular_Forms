@@ -1,5 +1,8 @@
 
-<form #myForm="ngForm" [ngFormOptions]="{updateOn: 'change'}">
+<form #myForm="ngForm"
+      [ngFormOptions]="{updateOn: 'change'}"
+      (submit)="send( myForm.value )"
+>
 
   <span ngModelGroup="personalInfo">
     <input type="text"
@@ -39,9 +42,11 @@
     cols="30"
     rows="5"
     placeholder="Nachricht"></textarea>
+
   <button type="submit" [disabled]="myForm.invalid">senden</button>
+
 </form>
 
-<button (click)="updateName()">update</button>
+<!--<button (click)="updateName()">update</button>-->
 
-<p>{{myForm.value | json}}</p>
+<!--<p>{{myForm.value | json}}</p>-->

@@ -34,24 +34,24 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(this.username.value);
     this.userSub = this.username.valueChanges.subscribe(
       next => {
-        console.log('new username', next);
+        // console.log('new username', next);
       }
     );
     this.formSub = this.ngForm.valueChanges.subscribe(
       next => {
-        console.log('form updated', next);
+        // console.log('form updated', next);
       }
     );
     this.userSub2 = this.username.statusChanges.subscribe(
       next => {
-        console.log('statusChanges', next, this.username.errors);
+        // console.log('statusChanges', next, this.username.errors);
 
       }
     );
   }
 
   usernameChanged(currentname: string) {
-    console.log('currentname', currentname);
+    // console.log('currentname', currentname);
   }
 
   ngOnDestroy(): void {
@@ -66,5 +66,9 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       emitViewToModelChange: true,
       emitModelToViewChange: true
     } );
+  }
+
+  send ( formData: any ) {
+    console.log ( formData, this.ngForm.value );
   }
 }

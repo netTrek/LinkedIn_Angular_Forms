@@ -1,9 +1,16 @@
-import {Directive} from '@angular/core';
-import {AbstractControl, ValidationErrors, Validator} from '@angular/forms';
+import {Directive, forwardRef} from '@angular/core';
+import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from '@angular/forms';
 import {MyValidators} from './my-validators';
 
 @Directive({
-  selector: '[inFuture]'
+  selector: '[inFuture]',
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef( () => FutureDirective ),
+      multi: true
+    }
+  ]
 })
 export class FutureDirective implements Validator {
 

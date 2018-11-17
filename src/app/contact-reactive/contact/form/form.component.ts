@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MyValidators} from '../../../my-validators/my-validators';
 
 @Component({
   selector: 'in-form',
@@ -13,6 +14,7 @@ export class FormComponent implements OnInit {
   email: FormControl | AbstractControl;
   msg: FormControl | AbstractControl;
   personalInfo: FormGroup | AbstractControl;
+  desired: AbstractControl;
 
   constructor( private fb: FormBuilder ) {
   }
@@ -38,11 +40,13 @@ export class FormComponent implements OnInit {
         name: ['', [Validators.required, Validators.minLength ( 3 )] ],
         email: ['', [Validators.required, Validators.email ] ],
       }),
+      desired: [ null, MyValidators.isFuture ],
       msg: [ '' ]
     });
 
     this.username = this.myForm.get ( ['personalInfo', 'name'] ) ;
     this.email = this.myForm.get ( ['personalInfo', 'email'] ) ;
+    this.desired = this.myForm.get ( ['desired'] ) ;
     this.msg = this.myForm.get ( ['msg'] ) ;
     this.personalInfo = this.myForm.get ( ['personalInfo'] ) ;
 

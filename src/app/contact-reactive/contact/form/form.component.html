@@ -18,6 +18,8 @@
   </span>
   <br>
 
+  <input type="date" [formControl]="desired">
+  <div *ngIf="desired.errors?.future">{{desired.errors | json}}</div>
   <textarea
     [formControl]="msg"
     cols="30"

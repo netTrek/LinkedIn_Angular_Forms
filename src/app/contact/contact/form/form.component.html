@@ -31,13 +31,10 @@
            id="email"
            required
            email
-           placeholder="email">  {{ email.valid }}
+           inUniqueMail
+           placeholder="email"> {{email.errors | json}}
   </span>
   <br>
-
-  <input type="date" name="forTesting" ngModel #forTesting="ngModel">
-  <input type="date" name="desired" ngModel #desired="ngModel" [inFuture]="forTesting.value">
-  <div *ngIf="desired.errors?.future">{{desired.errors | json}}</div>
 
   <textarea
     #message="ngModel"

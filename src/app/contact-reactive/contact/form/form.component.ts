@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
     this.myForm = this.fb.group( {
       personalInfo: this.fb.group( {
         name: ['', [Validators.required, Validators.minLength ( 3 )] ],
-        email: ['', [Validators.required, Validators.email ] ],
+        email: ['', [Validators.required, Validators.email ], MyValidators.uniqueMail  ],
       }),
       desired: [ null, MyValidators.isFuture( new Date ( 2018, 10, 4 )) ],
       msg: [ '' ]

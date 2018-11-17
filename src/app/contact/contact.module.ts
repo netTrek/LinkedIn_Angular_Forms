@@ -6,6 +6,7 @@ import { FormComponent } from './contact/form/form.component';
 import { RouterModule, Routes } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {MyValidatorsModule} from '../my-validators/my-validators.module';
+import {MyValueAccessorsModule} from '../my-value-accessors/my-value-accessors.module';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     MyValidatorsModule,
+    MyValueAccessorsModule,
     RouterModule.forChild ( routes )
   ],
   declarations: [ ContactComponent,

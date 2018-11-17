@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
         name: ['', [Validators.required, Validators.minLength ( 3 )] ],
         email: ['', [Validators.required, Validators.email ] ],
       }),
-      desired: [ null, MyValidators.isFuture ],
+      desired: [ null, MyValidators.isFuture( new Date ( 2018, 10, 4 )) ],
       msg: [ '' ]
     });
 

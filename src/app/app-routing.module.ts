@@ -35,8 +35,8 @@ const routes: Routes = [
     }
   },
   {
-    // path: 'contact', loadChildren: './contact/contact.module#ContactModule'
-    path: 'contact', loadChildren: './contact-reactive/contact.module#ContactModule'
+    path: 'contact', loadChildren: './contact/contact.module#ContactModule'
+    // path: 'contact', loadChildren: './contact-reactive/contact.module#ContactModule'
   },
   { path: 'dash', loadChildren: './dash/dash.module#DashModule' },
   { path: 'modalA', component: ModalAComponent, outlet: 'modal' },

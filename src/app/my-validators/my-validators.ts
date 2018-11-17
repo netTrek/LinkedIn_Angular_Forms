@@ -3,7 +3,7 @@ import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 export class MyValidators {
   static readonly isFuture: (condition?: Date) => ValidatorFn =
     (condition?: Date): ValidatorFn => (control: AbstractControl): ValidationErrors | null => {
-    if (control.value === null) {
+    if ( control.value === null || control.value === '' ) {
       return null;
     }
     const selected = new Date(control.value);

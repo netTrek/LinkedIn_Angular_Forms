@@ -3,7 +3,7 @@ import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from '@angu
 import {MyValidators} from './my-validators';
 
 @Directive({
-  selector: '[inFuture]',
+  selector: '[ngModel][inFuture],[formControl][inFuture],[formControlName][inFuture]',
   providers: [
     {
       provide: NG_VALIDATORS,

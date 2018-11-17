@@ -35,6 +35,9 @@
   </span>
   <br>
 
+  <input type="date" name="desired" ngModel #desired="ngModel" inFuture>
+  <div *ngIf="desired.errors?.future">{{desired.errors | json}}</div>
+
   <textarea
     #message="ngModel"
     ngModel

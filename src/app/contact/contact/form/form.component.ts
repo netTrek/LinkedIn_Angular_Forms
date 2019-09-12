@@ -9,10 +9,10 @@ import {Subscription} from 'rxjs';
 })
 export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild(NgForm)
+  @ViewChild(NgForm, { static: true })
   ngForm: NgForm;
 
-  @ViewChild('username')
+  @ViewChild('username', { static: true })
   username: NgModel;
 
   startValue = 'Peter Müller';

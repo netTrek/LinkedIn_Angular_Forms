@@ -35,10 +35,10 @@ const routes: Routes = [
     }
   },
   {
-    path: 'contact', loadChildren: './contact/contact.module#ContactModule'
+    path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
     // path: 'contact', loadChildren: './contact-reactive/contact.module#ContactModule'
   },
-  { path: 'dash', loadChildren: './dash/dash.module#DashModule' },
+  { path: 'dash', loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) },
   { path: 'modalA', component: ModalAComponent, outlet: 'modal' },
   { path: '**', component: NotFoundComponent }
 ];
